@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MyHomePage(title: 'An app that can count'),
+      home: MyHomePage(title: 'An app that can count to'),
     );
   }
 }
@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       _displayedString = _counter.toString();
     }
+    var colors = Colors;
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.title} $_counter'),
@@ -55,19 +56,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Text(
               _displayedString,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            FlatButton(
+            TextButton(
               onPressed: _resetCounter,
-              color: Colors.red,
+              //color: colors.green,
               child: Text(
                 'Reset Counter',
-                style: Theme.of(context).textTheme.button,
+                style: const TextStyle(color: Colors.red),
               ),
             ),
           ],
@@ -76,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
