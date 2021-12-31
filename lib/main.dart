@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'OurButton.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,13 +17,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
@@ -33,21 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
   void _resetCounter() {
     setState(() {
       _counter = 0;
     });
   }
-
   @override
   Widget build(BuildContext context) {
-    if (_counter == 0) {
-      _displayedString = 'Press the button to start counting';
+    if(_counter == 0) {
+      _displayedString = "None";
     } else {
       _displayedString = _counter.toString();
     }
-    var colors = Colors;
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.title} $_counter'),
@@ -56,28 +54,30 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'You have pushed the button this many times:',
             ),
             Text(
               _displayedString,
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.button,
             ),
-            TextButton(
+            FlatButton(
               onPressed: _resetCounter,
-              //color: colors.green,
+              color: Colors.red,
               child: Text(
-                'Reset Counter',
-                style: const TextStyle(color: Colors.red),
+                "Reset counter",
+                style: Theme.of(context).textTheme.button,
               ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: OurButton(
+        text: 'Make the counter ${_counter+1}',
+        textColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
+        splashColor: Theme.of(context).primaryColorLight,
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
