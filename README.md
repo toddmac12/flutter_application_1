@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 - To start app  
 
 * open Android/ISO emulator
-* run the following command in the Terminal:`run flutter`
+* run the following command in the Terminal:`flutter run`
