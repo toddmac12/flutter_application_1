@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class OurButton extends StatelessWidget {
@@ -23,7 +24,7 @@ class OurButton extends StatelessWidget {
         text,
         style: TextStyle(color: textColor),
       ),
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
     );
   }
 }
